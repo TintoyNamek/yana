@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Interactive Page</title>
+<link rel="stylesheet" href="index.css">
+<style>
+  .container {
+    text-align: center;
+    margin-top: 20px;
+    align-items: center;
+    align-self: center;
+  }
+  
+  button {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 15px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  #noBtn {
+    position: fixed;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <img id="catImage" src="cat.jpeg">
+  <p>Yana, sorry na. Bati na tayo, please...</p>
+  <button id="yesBtn" onclick="showNewPicture()">Yes</button>
+  <button id="noBtn" onclick="moveNoBtn()">No</button>
+</div>
+
+<script>
+  function showNewPicture() {
+    document.getElementById("catImage").src = "cat-yes.jpg";
+    document.getElementById("yesBtn").style.display = "none";
+    document.getElementById("noBtn").style.display = "none";
+    
+    var newMessage = "Thank you!, pangako always akong mag papaalam sayo po at never akong mag dradrive unless may permission mo sorry talaga po. Thankyouu and goodevening uli po.";
+    document.querySelector("p").textContent = newMessage;
+}
+
+
+  function moveNoBtn() {
+    var btn = document.getElementById("noBtn");
+    var newX = Math.floor(Math.random() * window.innerWidth);
+    var newY = Math.floor(Math.random() * window.innerHeight);
+    btn.style.left = newX + "px";
+    btn.style.top = newY + "px";
+  }
+</script>
+
+</body>
+</html>
